@@ -6,7 +6,7 @@ export default function ToDo() {
     const [atividade, setAtividade] = useState("");
     const [lista, setLista] = useState([]);
     const [id, setId] = useState(1);
-    const [per, setPer] = useState(1);
+    const [per, setPer] = useState();
 
 
     const salvar = (e) => {
@@ -41,7 +41,7 @@ export default function ToDo() {
                 
                 <input type="text"
                     value={per}
-                    onChange={(e) => { setAtividade(e.target.value) }} />
+                    onChange={(e) => { setPer(e.target.value) }} />
 
                 <button>ADICIONAR</button>
             </form>
