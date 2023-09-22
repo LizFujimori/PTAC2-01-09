@@ -57,3 +57,10 @@ body {
   .todo-item.today {
     background-color: #f0f0f0;
   }
+  BODY{
+    background-color: #990F02;
+  }
+  .container{
+    background-color: #FF6961;
+    border-radius: 10px;
+  }

@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function ToDo() {
-    const [atividade, setAtividade] = useState("");
     const [lista, setLista] = useState([]);
     const [id, setId] = useState(1);
     const [per, setPer] = useState();
+    const [arma, setArma] = useState();
+    const [arte, setArte] = useState();
+
 
 
     const salvar = (e) => {
         e.preventDefault();
         setLista([...lista, {
-            atividade: atividade,
             id: id,
-            per: per
+            per: per,
+            arma: arma
         }]);
         setId(id + 1);
         setAtividade("");
@@ -35,22 +37,31 @@ export default function ToDo() {
             <h1>Genshin Build</h1>
             <form onSubmit={salvar}>
                 
-                <input type="text"
-                    value={atividade}
-                    onChange={(e) => { setAtividade(e.target.value) }} />
-                
+            <h3>Personagem: </h3>
                 <input type="text"
                     value={per}
                     onChange={(e) => { setPer(e.target.value) }} />
 
+                <h3>Arma: </h3>
+                <input type="text"
+                    value={arma}
+                    onChange={(e) => { setArma(e.target.value) }} />
+                
+                <h3>Artefato: </h3>
+                <input type="text"
+                    value={arte}
+                    onChange={(e) => { setArte(e.target.value) }} />
+
                 <button>ADICIONAR</button>
+
             </form>
 
             {lista.map((ativ) =>
                 <ul key={ativ.id}>
                     <li> 
                         <p>Personagem: {ativ.per}</p>
-                        <p>{ativ.atividade}</p>
+                        <p>Arma: {ativ.arma}</p>
+                        <p>Artefato: {ativ.arte}</p>
                         <button onClick={() => remover(ativ.id)}>Remover</button>
                     </li>
                 </ul>
