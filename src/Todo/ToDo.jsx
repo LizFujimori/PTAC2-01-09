@@ -6,12 +6,15 @@ export default function ToDo() {
     const [atividade, setAtividade] = useState("");
     const [lista, setLista] = useState([]);
     const [id, setId] = useState(1);
+    const [per, setPer] = useState(1);
+
 
     const salvar = (e) => {
         e.preventDefault();
         setLista([...lista, {
             atividade: atividade,
-            id: id
+            id: id,
+            per: per
         }]);
         setId(id + 1);
         setAtividade("");
@@ -29,16 +32,24 @@ export default function ToDo() {
     return (
         <div class="container">
             <Link to="/">home</Link>
-            <h1>Lista de Atividades</h1>
+            <h1>Genshin Build</h1>
             <form onSubmit={salvar}>
+                
                 <input type="text"
                     value={atividade}
                     onChange={(e) => { setAtividade(e.target.value) }} />
+                
+                <input type="text"
+                    value={per}
+                    onChange={(e) => { setAtividade(e.target.value) }} />
+
                 <button>ADICIONAR</button>
             </form>
+
             {lista.map((ativ) =>
                 <ul key={ativ.id}>
-                    <li>
+                    <li> 
+                        <p>Personagem: {ativ.per}</p>
                         <p>{ativ.atividade}</p>
                         <button onClick={() => remover(ativ.id)}>Remover</button>
                     </li>
