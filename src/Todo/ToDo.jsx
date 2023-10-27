@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import { useEffect } from "react";
 
 export default function ToDo() {
     const listaLocalStorage = JSON.parse(localStorage.getItem("lista"));
