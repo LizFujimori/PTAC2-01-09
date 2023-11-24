@@ -58,6 +58,9 @@ export default function ToDo() {
 
             {lista.map((ativ) =>
                 <ul key={ativ.id}>
+                <Link to={`/detalhe/${ativ.id}`}>
+                    <li>{ativ.album}</li>
+                </Link>
                     <li> 
                         <p>Personagem: {ativ.per}</p>
                         <p>Arma: {ativ.arma}</p>
