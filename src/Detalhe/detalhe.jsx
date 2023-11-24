@@ -15,5 +15,5 @@ console.log(lista);
 
 return(
     <Card atividade={atividade[0]}/>
-)
+    )
 }
